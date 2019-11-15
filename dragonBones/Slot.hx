@@ -115,7 +115,7 @@ import dragonBones.textures.TextureData;
 	/**
 	 * @private
 	 */
-	private var _colorTransform:ColorTransform = new ColorTransform();
+	public var _colorTransform:ColorTransform = new ColorTransform();
 	/**
 	 * @private
 	 */

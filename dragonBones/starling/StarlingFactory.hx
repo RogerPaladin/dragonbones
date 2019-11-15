@@ -36,8 +36,10 @@ import starling.rendering.VertexData;
  * Starling 工厂。
  * @version DragonBones 3.0
  */
-@:allow(dragonBones) @:final class StarlingFactory extends BaseFactory
+@:allow(dragonBones) class StarlingFactory extends BaseFactory
 {
+	public static var imageClass : Class<Dynamic>;
+
 	/**
 	 * @private
 	 */
@@ -134,7 +136,10 @@ import starling.rendering.VertexData;
 		var slot:StarlingSlot = cast BaseObject.borrowObject(StarlingSlot);
 		var slotData:SlotData = skinSlotData.slot;
 		var displayList:Vector<Object> = new Vector<Object>(skinSlotData.displays.length, true);
-		
+
+		slot.name = slotData.name;
+		slot._rawDisplay = cast Type.createInstance(imageClass, []);
+
 		#if (starling >= "2.0")
 		slot._indexData = new IndexData();
 		slot._vertexData = new VertexData();
@@ -241,8 +246,8 @@ import starling.rendering.VertexData;
 				var textureAtlasTexture:Texture = cast(textureData.parent, StarlingTextureAtlasData).texture;
 				textureData.texture = new SubTexture(textureAtlasTexture, textureData.region, false, null, textureData.rotated);
 			}
-			
-			return new Image(textureData.texture);
+
+			return Type.createInstance(imageClass, [textureData.texture]);
 		}
 		
 		return null;

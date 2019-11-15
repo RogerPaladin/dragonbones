@@ -305,7 +305,7 @@ import dragonBones.textures.TextureData;
 				}
 			}
 			
-			slot.displayList = displayList;
+			slot.displayList = cast displayList;
 		}
 	}
 	/**
@@ -791,7 +791,7 @@ import dragonBones.textures.TextureData;
 	/** 
 	 * @private 
 	 */
-	private var allDragonBonesData (get, never):Map<String, DragonBonesData>;
+	public var allDragonBonesData (get, never):Map<String, DragonBonesData>;
 	private function get_allDragonBonesData():Dynamic
 	{
 		return _dragonBonesDataMap;

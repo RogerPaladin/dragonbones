@@ -93,7 +93,7 @@ import dragonBones.textures.TextureAtlasData;
 	/**
 	 * @private
 	 */
-	@:keep private function new()
+	@:keep public function new()
 	{
 		super();
 	}

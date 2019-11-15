@@ -54,7 +54,7 @@ import dragonBones.core.DragonBones;
 	/**
 	 * @private
 	 */
-	private var textures:Map<String, TextureData> = new Map<String, TextureData>();
+	public var textures:Map<String, TextureData> = new Map<String, TextureData>();
 	/**
 	 * @private
 	 */
